@@ -54,12 +54,10 @@ Build the Docker image:
 ```sh
 $ docker build -t k3os-custom-iso .
 ```
+
 Run the Docker container using the image build in previous step:
 ```sh
-$ docker run --rm -it -v ${PWD}:/k3os --privileged k3os-custom-iso
+docker run --rm -it -v ${PWD}:/k3os -e K3OS_ISO=k3os-amd64-v121.iso -e K3OS_CONFIG=config-nohostname.yml --privileged k3os-custom-iso
 ```
-In order to use different **k3os** version than the default one **v0.11.0-rc1** please add the desired [release version](https://github.com/rancher/k3os/releases) as an environment variable:
-```sh
-$ docker run --rm -it -v ${PWD}:/k3os --privileged -e k3os_release_version=<DESIRED_RELEASE_VERSION> k3os-custom-iso
-```
+
 The remastered ISO file **k3os-custom.iso** can be found from the directory where the Docker container was executed.

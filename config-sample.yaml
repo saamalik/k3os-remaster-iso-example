@@ -1,0 +1,19 @@
+ssh_authorized_keys:
+- github:saamalik
+k3os:
+  modules:
+  - kvm
+  - nvme
+  k3s_args:
+  - server
+  - "--disable"
+  - traefik
+  password: $6$UmZrrxMyTdqTY955$e0iH4LCch9BR/iwFyoMNzl6MI6Zq54uSd6sONVykgX3VCk.ebRhEcbw7IDEk.KP1AeqcaN9l0WRUL2RHdR.Ps.
+run_cmd:
+- sleep 10
+write_files:
+- content: |-
+    apiVersion: v1
+    kind: Namespace
+    metadata:
+      name: palette-system
